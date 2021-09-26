@@ -3,11 +3,11 @@ const { SnakeNamingStrategy } = require('typeorm-naming-strategies');
 const nodeEnv = process.env.NODE_ENV;
 const isProd = nodeEnv === 'production';
 
-const PG_HOST = 'localhost';
-const PG_PORT = '5432';
-const PG_USERNAME = '';
-const PG_PASSWORD = '';
-const PG_DATABASE = 'sdb';
+const PG_HOST = isProd ? process.env.PG_HOST : 'localhost';
+const PG_PORT = isProd ? process.env.PG_PORT : '5432';
+const PG_USERNAME = isProd ? process.env.PG_USERNAME : '';
+const PG_PASSWORD = isProd ? process.env.PG_PASSWORD : '';
+const PG_DATABASE = isProd ? process.env.PG_DATABASE : 'sdb';
 
 module.exports = {
   type: 'postgres',
