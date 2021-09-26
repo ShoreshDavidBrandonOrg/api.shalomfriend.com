@@ -11,17 +11,21 @@ const PG_DATABASE = isProd ? process.env.PG_DATABASE : 'sdb';
 
 module.exports = {
   type: 'postgres',
-  host: PG_HOST,
-  port: PG_PORT,
-  username: PG_USERNAME,
-  password: PG_PASSWORD,
-  database: PG_DATABASE,
+  url: process.env.PG_URL,
+  // host: PG_HOST,
+  // port: PG_PORT,
+  // username: PG_USERNAME,
+  // password: PG_PASSWORD,
+  // database: PG_DATABASE,
   synchronize: true,
   logging: false,
   entities: ['build/entity/**/*.js'],
   migrations: ['build/migration/**/*.js'],
   namingStrategy: new SnakeNamingStrategy(),
   dropSchema: false,
+  ssl: {
+    rejectUnauthorized: false,
+  },
   cli: {
     entitiesDir: 'src/entity',
     migrationsDir: 'src/migration',
