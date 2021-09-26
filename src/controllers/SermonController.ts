@@ -58,24 +58,14 @@ export const createSermon = async (
   next: NextFunction,
 ): Promise<Response | void> => {
   try {
-    const {
-      title,
-      featuredImage,
-      order,
-      video,
-      audio,
-      parts,
-      category,
-      showTitle,
-    }: Sermon = req.body;
+    const { title, featuredImage, video, parts, category, showTitle }: Sermon =
+      req.body;
 
     const sermon = Sermon.create({
       title,
       slug: slugify(title),
       featuredImage,
-      order,
       video,
-      audio,
       parts,
       category,
       showTitle,

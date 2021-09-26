@@ -33,16 +33,10 @@ export class Sermon extends BaseEntity {
   public slug: string;
 
   @Column({ nullable: true })
-  public description: string;
-
-  @Column({ nullable: true })
   public featuredImage: string;
 
   @Column({ nullable: true })
   public category: string;
-
-  @Column({ nullable: true })
-  public order: number;
 
   @Column({ nullable: true })
   public content: string;
@@ -52,9 +46,6 @@ export class Sermon extends BaseEntity {
 
   @Column({ nullable: true })
   public video: string;
-
-  @Column({ nullable: true })
-  public audio: string;
 
   @Column({ default: true })
   public showTitle: boolean;
